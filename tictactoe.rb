@@ -32,11 +32,12 @@ def initialize_board
   b
 end
 
+
 def player_picks_square(b)
   loop do 
     print "choose position (1 - 9): "
     position = gets.chomp.to_i  
-    if position.between?(1,9)
+    if position.between?(1,9) && empty_positions(b).include?(position) # number entry validation and setting player entry position if available.
       b[position] = 'X' 
       break
     else
@@ -83,7 +84,5 @@ else
 end
 
 
-
-# only accept available squares on user choice. complain if not available.
-
+# To Do: 
 # AI for computer to choose best square. Hint: think about how to make the computer smarter. To start, the computer should prefer to block any square that may allow 3 in a row. How about a method called two_in_a_row that returns either nil or the square to block if there’s two in a row.
